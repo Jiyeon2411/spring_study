@@ -2,14 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout1}">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+      
+<th:block layout:fragment="css">
+	<link rel="stylesheet" type="text/css" href="css/article.css"/>
+</th:block>
 
-<link rel="stylesheet" type="text/css" href="css/list.css"/>
-
-</head>
-<body>
 	<div layout:fragment="content" id="bbsList">
 	<div id="bbsList_header">
 		<div id="leftHeader">
@@ -27,8 +24,6 @@
 			<input type="button" value=" 질문하기 " class="btn2" onclick=""/>			
 		</div>		
 	</div>
-	
-	
 	
 	<div id="bbsList_list">
 		<table>		
@@ -51,5 +46,5 @@
 <script th:inline="javascript">
 </script>
 </th:block>
-</body>
+
 </html>
