@@ -16,4 +16,12 @@ public interface BoardDao {
 	
 	public List<Board> getLists(String searchKey, String searchValue, 
 			int start, int end) throws Exception;
+	
+	public void updateHitCount(int num) throws Exception;
+	
+	public Board getReadData(int num) throws Exception; //mapper 만들고 dao 만듦 그리고 service 그리고 serviceimpl
+	
+	public void updateData(Board board) throws Exception;
+	
+	public void deleteData(int num) throws Exception;
 }
