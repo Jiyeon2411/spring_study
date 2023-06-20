@@ -1,5 +1,6 @@
 package com.example.board2.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
@@ -127,6 +128,7 @@ public class BoardController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("errorMessage", "리스트를 불러오는 중 오류가 발생했습니다.");
 		}
 		
 		return "bbs/list";
@@ -238,6 +240,12 @@ public class BoardController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			try {
+				param += "&errorMessage=" + URLEncoder.encode("게시글 수정 중 에러가 발생했습니다.", "UTF-8");
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
 		}
 				
 		return "redirect:/list" + param;
@@ -262,6 +270,12 @@ public class BoardController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			try {
+				param += "&errorMessage=" + URLEncoder.encode("게시글 삭제 중 에러가 발생했습니다.", "UTF-8");
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
 		}
 		
 		return "redirect:/list" + param;
